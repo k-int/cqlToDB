@@ -15,26 +15,20 @@ class CqlToHqlSpec extends Specification {
         // Until we need them tho, they are omitted. qbeForm entries with no explicit scope are at the root object.
         qbeForm:[
           [
-            prompt:'Name or Title',
-            qparam:'qp_name',
+            prompt:'Title',
+            qparam:'title',
             placeholder:'Name or title of item',
-            contextTree:['ctxtp':'qry', 'comparator' : 'ilike', 'prop':'name']
+            contextTree:['ctxtp':'qry', 'comparator' : 'ilike', 'prop':'title']
           ],
           [
-            prompt:'ID',
-            qparam:'qp_id',
-            placeholder:'ID of item',
+            prompt:'Author',
+            qparam:'author',
+            placeholder:'Author of Book',
             contextTree:['ctxtp':'qry', 'comparator' : 'eq', 'prop':'id', 'type' : 'java.lang.Long']
-          ],
-          [
-            prompt:'SID',
-            qparam:'qp_sid',
-            placeholder:'SID for item',
-            contextTree:['ctxtp':'qry', 'comparator' : 'eq', 'prop':'ids.value']
-          ],
+          ]
         ],
         qbeGlobals:[
-          ['ctxtp':'filter', 'prop':'status.value', 'comparator' : 'eq', 'value':'Deleted', 'negate' : true, 'prompt':'Hide Deleted', 'qparam':'qp_showDeleted', 'default':'on']
+          // ['ctxtp':'filter', 'prop':'status.value', 'comparator' : 'eq', 'value':'Deleted', 'negate' : true, 'prompt':'Hide Deleted', 'qparam':'qp_showDeleted', 'default':'on']
         ],
         qbeResults:[
           [heading:'Type', property:'class.simpleName'],
