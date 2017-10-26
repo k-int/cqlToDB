@@ -6,6 +6,12 @@ import com.k_int.cqlToDB.HqlBuilder;
 
 class CqlToHqlSpec extends Specification {
 
+  /**
+   * Assuming a HQL structure Book ---< author >--- Person
+   *
+   *
+   *
+   */
   def "Test ability to convert CQL to HQL"() {
 
     when:
@@ -17,7 +23,7 @@ class CqlToHqlSpec extends Specification {
       DBQuery builderResult = b.parse(cql, cfg);
 
     expect:
-      builderResult.query = 'select b from Book as b join b.authors as a where b.title=:t1 and ( a.person.name=:a1 OR a.person.name=:a2 )'
+      builderResult.query == 'select b from Book as b join b.authors as a where b.title=:t1 and ( a.person.name=:a1 OR a.person.name=:a2 )'
   }
 
 }

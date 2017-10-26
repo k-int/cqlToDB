@@ -5,6 +5,6 @@ package com.k_int.cqlToDB;
  * the query separate to the bind variables.
  */
 public class DBQuery {
-  String query;
-  java.util.Map bindVariables;
+  public String query;
+  public java.util.Map bindVariables;
 }
